@@ -35,10 +35,17 @@ class _CounterScreenState extends State<CounterScreen> {
                 stream: counterBloc.couterStateStream,
                 initialData: 0,
                 builder: (context, snapshot) {
-                  return Text(
-                    '${snapshot.data}',
-                    style: Theme.of(context).textTheme.headlineLarge,
-                  );
+                  if (snapshot.hasData) {
+                    return Text(
+                      '${snapshot.data}',
+                      style: Theme.of(context).textTheme.headlineLarge,
+                    );
+                  }
+                  if (snapshot.hasError) {
+                    return Text('Error ${snapshot.error}');
+                  }
+                  return const Text(
+                      "Jesus Does not bring me this far to leave. What He has started He is going to finish.");
                 }),
           ],
         ),
