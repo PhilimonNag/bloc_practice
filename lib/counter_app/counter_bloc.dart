@@ -4,6 +4,9 @@ enum CouterEvent { increment, decrement, reset }
 
 class CounterBloc {
   late int _counter;
+  //If many listening in many place use boradcast
+  //final _stateStreamController = StreamController<int>.broadcast();
+  //If listening in one place
   final _stateStreamController = StreamController<int>();
   StreamSink<int> get counterStateSink => _stateStreamController.sink;
   Stream<int> get couterStateStream => _stateStreamController.stream;
@@ -31,5 +34,11 @@ class CounterBloc {
         default:
       }
     });
+  }
+
+  //for avoiding memory leak
+  void dispose() {
+    _stateStreamController.close();
+    _eventStreamController.close();
   }
 }

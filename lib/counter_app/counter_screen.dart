@@ -10,6 +10,12 @@ class CounterScreen extends StatefulWidget {
 class _CounterScreenState extends State<CounterScreen> {
   CounterBloc counterBloc = CounterBloc();
   @override
+  void dispose() {
+    counterBloc.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     debugPrint('this widget build');
     return Scaffold(

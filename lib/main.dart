@@ -1,4 +1,3 @@
-import 'package:bloc_practice/counter_app/counter_bloc.dart';
 import 'package:flutter/material.dart';
 
 import 'counter_app/counter_screen.dart';
