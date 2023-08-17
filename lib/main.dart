@@ -1,6 +1,7 @@
+import 'package:bloc_practice/news_app/pages/news_page.dart';
 import 'package:flutter/material.dart';
 
-import 'counter_app/counter_screen.dart';
+//import 'counter_app/counter_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const CounterScreen(),
+      //home: const CounterScreen(),
+      home: const NewsPage(),
     );
   }
 }
